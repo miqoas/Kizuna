@@ -26,11 +26,11 @@ namespace Kizuna.Commands
         {
             try
             {
-                var text = Convert.FromBase64String(File.ReadAllText(FileName));
-                var key = Convert.FromBase64String(Key);
+                byte[] text = Convert.FromBase64String(File.ReadAllText(FileName));
+                byte[] key = Convert.FromBase64String(Key);
 
-                var aes = new AEAD_AES_256_GCM();
-                var result = Encoding.UTF8.GetString(aes.DecryptString(text, key));
+                AEAD_AES_256_GCM aes = new();
+                string result = Encoding.UTF8.GetString(aes.DecryptString(text, key));
 
                 if (ConsoleOnly)
                 {

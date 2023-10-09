@@ -16,7 +16,7 @@ namespace Kizuna
     {
         public static int Main(string[] args)
         {
-            var app = new CommandLineApplication<Program>();
+            CommandLineApplication<Program> app = new();
             app.HelpOption();
 
             Console.OutputEncoding = Encoding.UTF8;

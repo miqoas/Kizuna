@@ -73,9 +73,9 @@ namespace CryptHash.Net
             if (string.IsNullOrEmpty(password))
                 throw new ArgumentNullException("Password to encrypt required.", nameof(password));
 
-            var plainStringBytes = System.Text.Encoding.UTF8.GetBytes(plainString);
-            var passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
-            var associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
+            byte[] plainStringBytes = System.Text.Encoding.UTF8.GetBytes(plainString);
+            byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
+            byte[] associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
 
             return EncryptString(plainStringBytes, passwordBytes, associatedDataBytes, appendEncryptionDataToOutput);
         }
@@ -88,9 +88,9 @@ namespace CryptHash.Net
             if (secStrPassword == null || secStrPassword.Length <= 0)
                 throw new ArgumentNullException("Password to encrypt required.", nameof(secStrPassword));
 
-            var plainStringBytes = System.Text.Encoding.UTF8.GetBytes(plainString);
-            var passwordBytes = CommonMethods.ConvertSecureStringToByteArray(secStrPassword);
-            var associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
+            byte[] plainStringBytes = System.Text.Encoding.UTF8.GetBytes(plainString);
+            byte[] passwordBytes = CommonMethods.ConvertSecureStringToByteArray(secStrPassword);
+            byte[] associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
 
             return EncryptString(plainStringBytes, passwordBytes, associatedDataBytes, appendEncryptionDataToOutput);
         }
@@ -103,8 +103,8 @@ namespace CryptHash.Net
             if (secStrPassword == null || secStrPassword.Length <= 0)
                 throw new ArgumentNullException("Password to encrypt required.", nameof(secStrPassword));
 
-            var passwordBytes = CommonMethods.ConvertSecureStringToByteArray(secStrPassword);
-            var associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
+            byte[] passwordBytes = CommonMethods.ConvertSecureStringToByteArray(secStrPassword);
+            byte[] associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
 
             return EncryptString(plainStringBytes, passwordBytes, associatedDataBytes, appendEncryptionDataToOutput);
         }
@@ -162,9 +162,9 @@ namespace CryptHash.Net
             if (string.IsNullOrEmpty(password))
                 throw new ArgumentNullException("Password to decrypt required.", nameof(password));
 
-            var encryptedStringBytes = Convert.FromBase64String(base64EncryptedString);
-            var passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
-            var associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
+            byte[] encryptedStringBytes = Convert.FromBase64String(base64EncryptedString);
+            byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
+            byte[] associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
 
             return DecryptString(encryptedStringBytes, passwordBytes, associatedDataBytes, hasEncryptionDataAppendedInInput, tag, salt, nonce);
         }
@@ -178,9 +178,9 @@ namespace CryptHash.Net
             if (secStrPassword == null || secStrPassword.Length <= 0)
                 throw new ArgumentNullException("Password to decrypt required.", nameof(secStrPassword));
 
-            var plainStringBytes = System.Text.Encoding.UTF8.GetBytes(base64EncryptedString);
-            var passwordBytes = CommonMethods.ConvertSecureStringToByteArray(secStrPassword);
-            var associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
+            byte[] plainStringBytes = System.Text.Encoding.UTF8.GetBytes(base64EncryptedString);
+            byte[] passwordBytes = CommonMethods.ConvertSecureStringToByteArray(secStrPassword);
+            byte[] associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
 
             return DecryptString(plainStringBytes, passwordBytes, associatedDataBytes, hasEncryptionDataAppendedInInput, tag, salt, nonce);
         }
@@ -194,8 +194,8 @@ namespace CryptHash.Net
             if (secStrPassword == null || secStrPassword.Length <= 0)
                 throw new ArgumentNullException("Password to decrypt required.", nameof(secStrPassword));
 
-            var passwordBytes = CommonMethods.ConvertSecureStringToByteArray(secStrPassword);
-            var associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
+            byte[] passwordBytes = CommonMethods.ConvertSecureStringToByteArray(secStrPassword);
+            byte[] associatedDataBytes = (associatedDataString == null ? null : System.Text.Encoding.UTF8.GetBytes(associatedDataString));
 
             return DecryptString(encryptedStringBytes, passwordBytes, associatedDataBytes, hasEncryptionDataAppendedInInput, tag, salt, nonce);
         }

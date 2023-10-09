@@ -6,7 +6,7 @@ namespace Kizuna
     {
         public static byte[] ToBytes(this Stream input)
         {
-            using var ms = new MemoryStream();
+            using MemoryStream ms = new();
             input.CopyTo(ms);
             return ms.ToArray();
         }

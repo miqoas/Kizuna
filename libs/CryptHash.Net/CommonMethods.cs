@@ -58,7 +58,7 @@ namespace CryptHash.Net
         {
             byte[] pbkdf2HashedBytes;
 
-            using (var pbkdf2 = new Rfc2898DeriveBytes(passwordBytes, saltBytes, iterations, hashAlgorithmName))
+            using (Rfc2898DeriveBytes pbkdf2 = new(passwordBytes, saltBytes, iterations, hashAlgorithmName))
             {
                 pbkdf2HashedBytes = pbkdf2.GetBytes(keyBytesLength);
             }
@@ -135,8 +135,8 @@ namespace CryptHash.Net
             if (calcTag.Length != sentTag.Length)
                 throw new ArgumentException("Tags length must be equal");
 
-            var result = true;
-            var compare = 0;
+            bool result = true;
+            int compare = 0;
 
             for (var i = 0; i < sentTag.Length; i++)
             {
