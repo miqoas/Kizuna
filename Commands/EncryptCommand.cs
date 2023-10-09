@@ -1,14 +1,9 @@
 ﻿using CryptHash.Net;
 using McMaster.Extensions.CommandLineUtils;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using Kizuna;
-using System.IO.Pipes;
 
 namespace Kizuna.Commands
 {

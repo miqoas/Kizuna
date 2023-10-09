@@ -1,8 +1,6 @@
 ﻿using CryptHash.Net;
 using McMaster.Extensions.CommandLineUtils;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kizuna.Commands
 {
