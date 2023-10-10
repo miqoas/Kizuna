@@ -5,8 +5,8 @@ using McMaster.Extensions.CommandLineUtils;
 namespace Kizuna
 {
     [Command(
-        Name = "Kizuna",
-        FullName = "Kizuna",
+        Name = "Kizuna7",
+        FullName = "Kizuna7",
         Description = "A tool to encrypt and decrypt files using AES-256-GCM encryption."
     )]
     [Subcommand(typeof(Commands.GenerateKeyCommand))]
