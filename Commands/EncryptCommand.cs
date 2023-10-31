@@ -1,14 +1,9 @@
 ﻿using CryptHash.Net;
 using McMaster.Extensions.CommandLineUtils;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using Kizuna;
-using System.IO.Pipes;
 
 namespace Kizuna.Commands
 {
@@ -31,11 +26,11 @@ namespace Kizuna.Commands
         {
             try
             {
-                var text = Encoding.UTF8.GetBytes(File.ReadAllText(FileName));
-                var key = Convert.FromBase64String(Key);
+                byte[] text = Encoding.UTF8.GetBytes(File.ReadAllText(FileName));
+                byte[] key = Convert.FromBase64String(Key);
 
-                var aes = new AEAD_AES_256_GCM();
-                var result = Convert.ToBase64String(aes.EncryptString(text, key));
+                AEAD_AES_256_GCM aes = new();
+                string result = Convert.ToBase64String(aes.EncryptString(text, key));
 
                 if (ConsoleOnly)
                 {

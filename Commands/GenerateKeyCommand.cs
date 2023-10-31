@@ -1,8 +1,6 @@
 ﻿using CryptHash.Net;
 using McMaster.Extensions.CommandLineUtils;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kizuna.Commands
 {
@@ -11,7 +9,7 @@ namespace Kizuna.Commands
     {
         private void OnExecute(CommandLineApplication app)
         {
-            var key = CommonMethods.Generate256BitKey();
+            byte[] key = CommonMethods.Generate256BitKey();
 
             Console.WriteLine(Convert.ToBase64String(key));
         }

@@ -4,10 +4,7 @@
  *      https://github.com/alecgn
  */
 
-using System;
-using System.Collections.Generic;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace CryptHash.Net
 {
